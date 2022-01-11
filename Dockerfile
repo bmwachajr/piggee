@@ -12,3 +12,5 @@ RUN apk add --no-cache --update build-base
 RUN pip install -r requirements.txt
 # Copy source code to container
 COPY . /code/
+
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]

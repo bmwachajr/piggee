@@ -82,6 +82,10 @@ In order to use docker compose to test the app:
 - Copy .env `cp core/.env.example core/.env` and set SECRET_KEY value
 - Build the app `docker-compose build`
 - Run the app `docker-compose up`
-- Access the app on `http://0.0.0.0:8000/`
+- Access the app on `http://0.0.0.0:8000/translate/pig_latin`
 
 ## Kubernetes
+In order to use docker compose to test the app:
+- Spin up K8 service `kubectl create -f deployment.yml`
+- Access the app on `http://localhost:8000/translate/pig_latin`
+
