@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: translator-microservice
+  labels:
+    name: translator-microservice
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: translator-microservice
+  template:
+    metadata:
+      labels:
+        name: translator-microservice
+    spec:
+      containers:
+      - name: translator-microservice
+        # Replace  with your project ID or use `make template`
+        image: bmwachajr/translator-microservice
+
+        # This setting makes nodes pull the docker image every time before
+        # starting the pod. This is useful when debugging, but should be turned
+        # off in production.
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: translator-microservice
+  labels:
+    name: translator-microservice
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    name: translator-microservice
