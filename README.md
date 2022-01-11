@@ -33,7 +33,7 @@ Welcome to the pig latin translation microservice.
 
 ## Using the python cli client:
 You can use a python client script to send requests (through API) to your application.
-- Use [docker-compose](#docker) to [Kubrnetes](#kubernetes) to spin up the microservice.
+- Use [docker-compose](#docker) or [Kubrnetes](#kubernetes) to spin up the microservice.
 - From the root directory of the project, navigate into the client module. `cd client`
 - Start the python client. `python3 -m python_client.py`
 
@@ -43,8 +43,7 @@ The microservice api structure has been set up inside the `/api/` path on the pr
 For example:
 ```
 core/
-api/
-    piglatin
+translator/
 ```
 
 ## Endpoint Documentation
@@ -52,9 +51,9 @@ api/
 ### Translate
 #### Request
 
-    `POST /translate/piglatin/`
+    `POST /translate/pig_latin/`
 
-    Allow: POST, HEAD, OPTIONS
+    Allow: POST, OPTIONS
     Content-Type: application/json
     Vary: Accept
     
@@ -65,7 +64,6 @@ api/
 #### Response
 
     HTTP 201 Created
-    Allow: POST, OPTIONS
     Content-Type: application/json
     Vary: Accept
 
