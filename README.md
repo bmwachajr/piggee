@@ -29,7 +29,7 @@ Welcome to the pig latin translation microservice.
 - Install Project dependecies `pip3 install -r requirements.txt`
 - Copy .env `cp core/.env.example core/.env` and set SECRET_KEY value
 - Run the server: `python3 manage.py runserver`
-- Access the app on `http://0.0.0.0:8000/`
+- Access the app on `http://0.0.0.0:8000/translate/pig_latin`
 
 ## Using the python cli client:
 You can use a python client script to send requests (through API) to your application.
@@ -76,9 +76,7 @@ translator/
 ## Testing
 In order to test the apps created you can use the following command:
 
-        python manage.py test core.translate.<endpoint>
-
-For example, to test the events endpoint than you can type: `python manage.py test core.translate.pig_latin`
+        python3 -m manage test translator
 
 
 ## Docker
